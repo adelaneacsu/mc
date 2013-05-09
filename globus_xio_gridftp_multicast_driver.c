@@ -492,7 +492,7 @@ char *msg = "Salut!! Eu sunt un mesaj de debugging !";
 char *msg2 = "Eu sunt alt mesaj de debugging";
 globus_gfs_log_message(
             GLOBUS_GFS_LOG_INFO,
-            "loading extension %s\n", msg);
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gridftp_activate);
 
@@ -501,7 +501,7 @@ globus_gfs_log_message(
 
 globus_gfs_log_message(
             GLOBUS_GFS_LOG_INFO,
-            "loading extension %s\n", msg2);
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg2);
 
 
     rc = globus_module_activate(GLOBUS_XIO_MODULE);
