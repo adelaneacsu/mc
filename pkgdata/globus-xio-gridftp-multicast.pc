@@ -1,0 +1,14 @@
+prefix=/usr/local/globus-5.2.4
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/globus
+GLOBUS_FLAVOR_NAME=gcc32dbg
+flavorincludedir=${includedir}/${GLOBUS_FLAVOR_NAME}
+
+Name: globus-xio-gridftp-multicast
+Description: Globus Toolkit - Globus XIO GridFTP Multicast Driver
+Version: 0.1
+Requires.private: globus-ftp-client >= 2  globus-xio-gsi-driver globus-xio
+Libs: -L${libdir}
+Libs.private: 
+Cflags:  -I${includedir} -I${flavorincludedir} 

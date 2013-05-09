@@ -1,0 +1,4 @@
+/share/globus/packages/globus_xio_gridftp_multicast/gcc32dbg_rtl.filelist
+/share/globus/packages/globus_xio_gridftp_multicast/pkg_data_gcc32dbg_rtl.gpt
+/lib/libglobus_xio_gridftp_multicast_driver.so.0.0.1
+/lib/libglobus_xio_gridftp_multicast_driver.so.0
