@@ -487,11 +487,12 @@ int
 xio_l_gridftp_multicast_activate()
 {
     int rc;
+    int GLOBUS_GFS_LOG_WARN = 0x02;
 
 char *msg = "Salut!! Eu sunt un mesaj de debugging !";
 char *msg2 = "Eu sunt alt mesaj de debugging";
 globus_gfs_log_message(
-            GLOBUS_GFS_LOG_INFO,
+            GLOBUS_GFS_LOG_WARN,
             "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gridftp_activate);
@@ -500,7 +501,7 @@ globus_gfs_log_message(
     GlobusXIOGridftpMulticastDebugEnter();
 
 globus_gfs_log_message(
-            GLOBUS_GFS_LOG_INFO,
+            GLOBUS_GFS_LOG_WARN,
             "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg2);
 
 
