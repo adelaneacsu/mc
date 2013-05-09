@@ -186,7 +186,10 @@ xio_l_gmc_anyone_alive(
     int                                 i;
     int                                 open_count = 0;
 
-printf("\nAnyone alive?\n");
+char *msg = "Salut!! alive";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
     for(i = 0; i < handle->ftps_total; i++)
     {
         if(handle->ftp_handles[i].result == GLOBUS_SUCCESS)
@@ -212,7 +215,10 @@ xio_l_gmc_handle_destroy(
     globus_object_t *                   err_obj;
     char *                              str;
 
-printf("\nDestroy handle\n");
+char *msg = "HDDD";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     for(i = 0; i < handle->ftps_total; i++)
     {
@@ -276,7 +282,10 @@ xio_l_gmc_make_ftp_error_list(
     int                                 i;
     globus_object_t *                   err_obj;
 
-printf("\nMake error list\n");
+char *msg = "SalutMERRR";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);;
 
     if(ftp_handle->result == GLOBUS_SUCCESS)
     {
@@ -369,7 +378,10 @@ xio_l_gmc_get_error(
     globus_list_t *                     error_list = NULL;
     globus_object_t *                   err_obj;
 
-printf("\nGet error\n");
+char *msg = "GET ERRRRRRRRRRR";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     for(i = 0; i < handle->ftps_total; i++)
     {
@@ -431,7 +443,10 @@ xio_l_gmc_error_strings(
     int                                 err_count = 0;
     globus_object_t *                   err_obj;
 
-printf("\nError string\n");
+char *msg = "ERRRRRRRRRRR";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     err_str = strdup("");
     for(i = 0; i < handle->ftps_total; i++)
@@ -487,24 +502,11 @@ int
 xio_l_gridftp_multicast_activate()
 {
     int rc;
-    int GLOBUS_GFS_LOG_WARN = 0x02;
-
-char *msg = "Salut!! Eu sunt un mesaj de debugging !";
-char *msg2 = "Eu sunt alt mesaj de debugging";
-globus_gfs_log_message(
-            GLOBUS_GFS_LOG_WARN,
-            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gridftp_activate);
 
     GlobusDebugInit(GLOBUS_XIO_GRIDFTP_MULTICAST, TRACE);
     GlobusXIOGridftpMulticastDebugEnter();
-
-globus_gfs_log_message(
-            GLOBUS_GFS_LOG_WARN,
-            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg2);
-
-
     rc = globus_module_activate(GLOBUS_XIO_MODULE);
     if (rc != GLOBUS_SUCCESS)
     {
@@ -533,8 +535,10 @@ int
 xio_l_gridftp_multicast_deactivate()
 {   
     int rc;
-
-printf("\nDeactivate MC\n");
+    char *msg = "nDeactivate";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gridftp_multicast_deactivate);
     
@@ -575,7 +579,10 @@ xio_l_gmc_put_done(
     xio_l_gmc_ftp_handle_t *            ftp_handle;
     globus_result_t                     result;
 
-printf("\nPut done\n");
+char *msg = "Put done";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gmc_put_done);
 
@@ -712,7 +719,10 @@ xio_l_gridftp_multicast_open_cb(
     int                                 i;
     xio_l_gridftp_multicast_handle_t *  handle;
 
-printf("\nMC open cb\n");
+char *msg = "ocbv";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gridftp_multicast_open_cb);
 
@@ -832,7 +842,10 @@ xio_l_gridftp_multicast_open(
     char *                              str_ptr;
     globus_bool_t                       finish_open = GLOBUS_FALSE;
 
-printf("\nMC open\n");
+char *msg = "open";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gridftp_multicast_open);
 
@@ -1007,7 +1020,10 @@ xio_l_gmc_destroy_forwarder(
 {
     globus_result_t                     result;
 
-printf("\nDestroy forwarder\n");
+char *msg = "distrugere";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     if(ftp_handle->closing)
     {
@@ -1051,7 +1067,10 @@ xio_l_gmc_setup_forwarder(
     globus_ftp_control_parallelism_t    para;
     globus_ftp_control_tcpbuffer_t      tcp_buffer;
 
-printf("\nSetup forwarder\n");    
+char *msg = "setup";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     handle = ftp_handle->whos_my_daddy;
 
@@ -1209,7 +1228,10 @@ xio_l_gmc_ftp_write_cb(
     xio_l_gridftp_multicast_handle_t *  handle;
     xio_l_gmc_ftp_handle_t *            ftp_handle;
 
-printf("\nFTP write cb\n");
+char *msg = "FTPWRITE";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gmc_ftp_write_cb);
 
@@ -1259,7 +1281,10 @@ xio_l_gmc_disk_write_cb(
     globus_bool_t                       alive;
     xio_l_gridftp_multicast_handle_t *  handle;
 
-printf("\nDisk write cb\n");
+char *msg = "WW";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gmc_disk_write_cb);
 
@@ -1311,7 +1336,10 @@ xio_l_gridftp_multicast_read(
     globus_size_t                       wait_for;
     globus_result_t                     result;
 
-printf("\nMC read\n");    
+char *msg = "read";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     wait_for = globus_xio_operation_get_wait_for(op);
 
@@ -1343,7 +1371,10 @@ xio_l_gridftp_multicast_write(
     globus_off_t                        offset;
     globus_bool_t                       finish_write = GLOBUS_FALSE;
 
-printf("\nMC write\n");
+char *msg = "rite";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gridftp_multicast_write);
     
@@ -1486,7 +1517,10 @@ xio_l_gmc_eof_cb(
     xio_l_gmc_ftp_handle_t *            ftp_handle;
     xio_l_gridftp_multicast_handle_t *  handle;
 
-printf("\nEOF cb\n");
+char *msg = "eof";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gmc_eof_cb);
 
@@ -1513,7 +1547,10 @@ xio_l_gmc_close_cb(
     globus_bool_t                       finish_close = GLOBUS_FALSE;
     xio_l_gridftp_multicast_handle_t *  handle;
 
-printf("\nClose cb\n");
+char *msg = "clsose";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gmc_close_cb);
     
@@ -1554,7 +1591,10 @@ xio_l_gridftp_multicast_close(
     xio_l_gmc_ftp_handle_t *            ftp_handle;
     xio_l_gridftp_multicast_handle_t *  handle;
 
-printf("\nMC close\n");
+char *msg = "mcc";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gridftp_multicast_close);
     
@@ -1659,7 +1699,10 @@ xio_l_gridftp_multicast_cntl(
     globus_off_t                        in_offset;
     xio_l_gridftp_multicast_handle_t *  handle;
 
-printf("\nMC cntl?\n");
+char *msg = "cntl";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
     GlobusXIOName(xio_l_gridftp_multicast_cntl);
 
@@ -1701,7 +1744,10 @@ xio_l_gridftp_multicast_attr_init(
 {
     xio_l_gridftp_multicast_attr_t *    attr;
 
-printf("\nAttr init\n");
+char *msg = "attr";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
 
     attr = (xio_l_gridftp_multicast_attr_t *) 
@@ -1751,7 +1797,10 @@ xio_l_gridftp_multicast_attr_cntl(
     char *                              sbj;
     char *                              url;
 
-printf("\nAttr cntl\n");
+char *msg = "AC";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
 
     attr = (xio_l_gridftp_multicast_attr_t *) driver_attr;
@@ -1808,7 +1857,10 @@ xio_l_gridftp_multicast_attr_copy(
     xio_l_gridftp_multicast_attr_t *    dst_attr; 
     xio_l_gridftp_multicast_attr_t *    src_attr;
 
-printf("\nAttr copy\n");
+char *msg = "acpy";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
 
     src_attr = (xio_l_gridftp_multicast_attr_t *) src;
@@ -1840,7 +1892,10 @@ xio_l_gridftp_multicast_attr_destroy(
     char *                              str;
     xio_l_gridftp_multicast_attr_t *    attr;
 
-printf("\nAttr destroy\n");
+char *msg = "Salut!! ad";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
 
 
     attr = (xio_l_gridftp_multicast_attr_t *) driver_attr;
@@ -1915,7 +1970,10 @@ void
 xio_l_gridftp_multicast_destroy(
     globus_xio_driver_t                 driver)
 {
-    printf("\nMC destroy\n");
+    char *msg = "mcdestr";
+globus_gfs_log_message(
+            0x02,
+            "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s\n", msg);
     globus_xio_driver_destroy(driver);
 }
 
